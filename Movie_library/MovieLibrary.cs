@@ -40,21 +40,11 @@ namespace Movie_library
                         return _ordinaryMovies[movieNum];
                 }
 
-                throw new KeyNotFoundException("Movie not found");
-            }
-        }
-
-        public string GetMovie(int movieNum)
-        {
-            try
-            {
-                return this[movieNum];
-            }
-            catch (KeyNotFoundException)
-            {
                 return "Movie not found";
             }
         }
+
+        public string GetMovie(int movieNum) => this[movieNum];
 
         public IEnumerator GetEnumerator()
         {
@@ -78,10 +68,6 @@ namespace Movie_library
             }
         }
 
-        private bool IsNightTime()
-        {
-            var now = DateTime.Now;
-            return now.Hour >= 23 || now.Hour < 7;
-        }
+        private bool IsNightTime() => DateTime.Now.Hour >= 23 || DateTime.Now.Hour < 7;
     }
 }
